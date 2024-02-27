@@ -3,7 +3,8 @@ const Movie = require('../models/movie');
 
 module.exports = {
   new: newPerformer,
-  create
+  create,
+  addToCast
 };
 
 async function newPerformer(req, res) {
@@ -26,4 +27,16 @@ async function create(req, res) {
     console.log(err);
   }
   res.redirect('/performers/new');
+}
+
+async function addToCast(req, res) {
+  try {
+  const movie = await Movie.findById(req.params.id);
+  movie.cast.push(req.body.performerId);
+  await movie.save();
+  res.redirect(`/movies/${movie._id}`);
+  }
+  catch(err){
+    res.send(err.message);
+  }
 }

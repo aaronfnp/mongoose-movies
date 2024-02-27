@@ -12,7 +12,14 @@ const reviewSchema = new Schema({
     min: 1,
     max: 5,
     default: 5
-  }
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
 }, {
   timestamps: true
 });
@@ -30,7 +37,10 @@ const movieSchema = new Schema({
     type: String,
     enum: ['G', 'PG', 'PG-13', 'R']
   },
-  cast: [String],
+  cast: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Performer'
+  }],
   nowShowing: { type: Boolean, default: true },
   reviews: [reviewSchema]
 }, {

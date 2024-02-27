@@ -156,3 +156,35 @@ hr {
   font-size: .8rem;
   text-align: center;
 }
+
+#show-page ul {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+	
+#show-page li {
+  font-weight: bold;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
+
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
